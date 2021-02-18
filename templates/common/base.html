@@ -1,0 +1,12 @@
+{% extends '../base.html' %}
+{% block content %}
+{% load socialaccount %}
+{% if username %}
+    <h1>Привет, {{ username }}!</h1>
+    <a href="/accounts/logout">Выйти</a>
+{% else %}
+    <a href="{% provider_login_url 'github' method='oauth2' %}">Войти через GITHUB</a>
+    <a href="/accounts/login">Войти</a>
+    <a href="/accounts/signup">Регистрация</a>
+{% endif %}
+{% endblock %}
